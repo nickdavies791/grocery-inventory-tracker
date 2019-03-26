@@ -32,6 +32,24 @@ class Store
 	}
 
 	/*
+	 * Sets the store name
+	 */
+	public function setName($name)
+	{
+		return $this->name = $name;
+	}
+
+	/*
+	 * Stores multiple items in the array
+	 */
+	public function addItems(array $items)
+	{
+		foreach ($items as $item) {
+			$this->addItem($item);
+		}
+	}
+
+	/*
 	 * Stores a new item in the array
 	 */
 	public function addItem($item)
