@@ -10,7 +10,7 @@ class ItemTest extends TestCase
 	 */
 	public function an_item_can_have_an_item_number()
 	{
-		$item = new Item('123456', 'Garden Furniture', 15, 99.99);
+		$item = $this->setupItem($number = '123456');
 
 		$this->assertEquals('123456', $item->number());
 	}
@@ -20,9 +20,9 @@ class ItemTest extends TestCase
 	 */
 	public function an_item_can_have_a_description()
 	{
-		$item = new Item('123456', 'Garden Furniture', 15, 99.99);
+		$item = $this->setupItem($description = 'Four tables and three chairs');
 
-		$this->assertEquals('Garden Furniture', $item->description());
+		$this->assertEquals('Four tables and three chairs', $item->description());
 	}
 
 	/**
@@ -30,7 +30,7 @@ class ItemTest extends TestCase
 	 */
 	public function an_item_can_have_a_quantity()
 	{
-		$item = new Item('123456', 'Garden Furniture', 15, 99.99);
+		$item = $this->setupItem($quantity = 15);
 
 		$this->assertEquals(15, $item->quantity());
 	}
@@ -40,8 +40,16 @@ class ItemTest extends TestCase
 	 */
 	public function an_item_can_have_a_price()
 	{
-		$item = new Item('123456', 'Garden Furniture', 15, 99.99);
+		$item = $this->setupItem($price = 99.99);
 
 		$this->assertEquals(99.99, $item->price());
+	}
+
+	/*
+	 * Set up the item
+	 */
+	protected function setupItem($number = 123, $name = 'Item', $description = 'A nice item description', $quantity = 2, $price = 12.50)
+	{
+		return new Item($number, $name, $description, $quantity, $price);
 	}
 }
