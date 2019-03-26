@@ -6,9 +6,9 @@
 - [x] an item can have a quantity
 - [x] an item can have a price
 #### Store Class
-- [ ] a store can have a name
-- [ ] a store can have an item
-- [ ] a store can have multiple items
+- [x] a store can have a name
+- [x] a store can have an item
+- [x] a store can have multiple items
 #### Item Class Validation
 - [ ] the item number must be in the range 0-99999
 - [ ] the item number must be unique
