@@ -1,7 +1,7 @@
 ## Unit
 #### Item Class
 - [x] an item can have an item number
-- [ ] an item can have a name
+- [x] an item can have a name
 - [x] an item can have a description
 - [x] an item can have a quantity
 - [x] an item can have a price
