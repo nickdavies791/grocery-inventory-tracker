@@ -1,8 +1,8 @@
 ## Unit
 #### Item Class
 - [x] an item can have an item number
-- [ ] an item can have a description
-- [ ] an item can have a quantity
+- [x] an item can have a description
+- [x] an item can have a quantity
 - [ ] an item can have a price
 #### Item Class Validation
 - [ ] the item number must be in the range 0-99999
