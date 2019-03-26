@@ -9,13 +9,20 @@ class Item
 	 */
 	protected $number;
 
+	/*
+	 * The item description
+	 */
+	protected $description;
+
 	/**
 	 * Item constructor.
 	 * @param $number
+	 * @param $description
 	 */
-	public function __construct($number)
+	public function __construct($number, $description)
 	{
 		$this->number = $number;
+		$this->description = $description;
 	}
 
 	/*
@@ -24,5 +31,13 @@ class Item
 	public function number()
 	{
 		return $this->number;
+	}
+
+	/*
+	 * Returns the item description
+	 */
+	public function description()
+	{
+		return $this->description;
 	}
 }
