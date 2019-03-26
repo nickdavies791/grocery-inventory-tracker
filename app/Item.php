@@ -55,11 +55,26 @@ class Item
 	}
 
 	/*
+	 * Sets the item number
+	 */
+	public function setNumber($number)
+	{
+		return $this->number = $number;
+	}
+	/*
 	 * Returns the item name
 	 */
 	public function name()
 	{
 		return $this->name;
+	}
+
+	/*
+	 * Sets the item name
+	 */
+	public function setName($name)
+	{
+		return $this->name = $name;
 	}
 
 	/*
@@ -71,6 +86,14 @@ class Item
 	}
 
 	/*
+	 * Sets the description
+	 */
+	public function setDescription($description)
+	{
+		return $this->description = $description;
+	}
+
+	/*
 	 * Returns the item quantity
 	 */
 	public function quantity()
@@ -79,10 +102,26 @@ class Item
 	}
 
 	/*
+	 * Sets the item quantity
+	 */
+	public function setQuantity($quantity)
+	{
+		return $this->quantity = $quantity;
+	}
+
+	/*
 	 * Returns the item price
 	 */
 	public function price()
 	{
 		return $this->price;
+	}
+
+	/*
+	 * Sets the item price
+	 */
+	public function setPrice($price)
+	{
+		return $this->price = $price;
 	}
 }

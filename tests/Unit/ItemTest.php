@@ -18,11 +18,33 @@ class ItemTest extends TestCase
 	/**
 	 * @test
 	 */
+	public function an_item_number_can_be_set()
+	{
+		$item = $this->setupItem();
+		$item->setNumber(321);
+
+		$this->assertEquals(321, $item->number());
+	}
+
+	/**
+	 * @test
+	 */
 	public function an_item_can_have_a_name()
 	{
 		$item = $this->setupItem();
 
 		$this->assertEquals('Garden Furniture', $item->name());
+	}
+
+	/**
+	 * @test
+	 */
+	public function an_item_name_can_be_set()
+	{
+		$item = $this->setupItem();
+		$item->setName('MacBook Pro');
+
+		$this->assertEquals('MacBook Pro', $item->name());
 	}
 
 	/**
@@ -38,6 +60,17 @@ class ItemTest extends TestCase
 	/**
 	 * @test
 	 */
+	public function an_item_description_can_be_set()
+	{
+		$item = $this->setupItem();
+		$item->setDescription('LED-backlit widescreen display');
+
+		$this->assertEquals('LED-backlit widescreen display', $item->description());
+	}
+
+	/**
+	 * @test
+	 */
 	public function an_item_can_have_a_quantity()
 	{
 		$item = $this->setupItem();
@@ -48,11 +81,33 @@ class ItemTest extends TestCase
 	/**
 	 * @test
 	 */
+	public function an_item_quantity_can_be_set()
+	{
+		$item = $this->setupItem();
+		$item->setQuantity(45);
+
+		$this->assertEquals(45, $item->quantity());
+	}
+
+	/**
+	 * @test
+	 */
 	public function an_item_can_have_a_price()
 	{
 		$item = $this->setupItem();
 
 		$this->assertEquals(99.99, $item->price());
+	}
+
+	/**
+	 * @test
+	 */
+	public function an_item_price_can_be_set()
+	{
+		$item = $this->setupItem();
+		$item->setPrice(72.50);
+
+		$this->assertEquals(72.50, $item->price());
 	}
 
 	/*
