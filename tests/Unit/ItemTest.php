@@ -10,7 +10,7 @@ class ItemTest extends TestCase
 	 */
 	public function an_item_can_have_an_item_number()
 	{
-		$item = new Item('123456', 'Garden Furniture');
+		$item = new Item('123456', 'Garden Furniture', 15);
 
 		$this->assertEquals('123456', $item->number());
 	}
@@ -20,8 +20,18 @@ class ItemTest extends TestCase
 	 */
 	public function an_item_can_have_a_description()
 	{
-		$item = new Item('123456', 'Garden Furniture');
+		$item = new Item('123456', 'Garden Furniture', 15);
 
 		$this->assertEquals('Garden Furniture', $item->description());
+	}
+
+	/**
+	 * @test
+	 */
+	public function an_item_can_have_a_quantity()
+	{
+		$item = new Item('123456', 'Garden Furniture', 15);
+
+		$this->assertEquals(15, $item->quantity());
 	}
 }
