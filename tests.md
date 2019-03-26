@@ -3,7 +3,7 @@
 - [x] an item can have an item number
 - [x] an item can have a description
 - [x] an item can have a quantity
-- [ ] an item can have a price
+- [x] an item can have a price
 #### Item Class Validation
 - [ ] the item number must be in the range 0-99999
 - [ ] the item number must be unique
