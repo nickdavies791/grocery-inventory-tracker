@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Exceptions\InvalidTypeException;
+
 class Item
 {
 	/*
@@ -59,6 +61,10 @@ class Item
 	 */
 	public function setNumber($number)
 	{
+		if (!is_int($number)) {
+			throw new InvalidTypeException($number);
+		}
+
 		return $this->number = $number;
 	}
 	/*
