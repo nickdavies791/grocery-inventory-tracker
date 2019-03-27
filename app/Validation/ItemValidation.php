@@ -7,7 +7,7 @@ use App\Exceptions\InvalidLengthException;
 use App\Exceptions\InvalidTypeException;
 use App\Exceptions\OutOfRangeException;
 
-class ItemValidation
+trait ItemValidation
 {
 	/**
 	 * Validate the item number

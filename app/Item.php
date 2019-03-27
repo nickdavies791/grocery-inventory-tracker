@@ -4,8 +4,10 @@ namespace App;
 
 use App\Validation\ItemValidation;
 
-class Item extends ItemValidation
+class Item
 {
+	use ItemValidation;
+
 	/*
 	 * The item number
 	 */

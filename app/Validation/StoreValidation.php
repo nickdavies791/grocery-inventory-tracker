@@ -5,7 +5,7 @@ namespace App\Validation;
 use App\Exceptions\InvalidLengthException;
 use App\Exceptions\InvalidTypeException;
 
-class StoreValidation
+trait StoreValidation
 {
 	/**
 	 * Validate the store name

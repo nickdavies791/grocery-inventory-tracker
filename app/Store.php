@@ -4,8 +4,10 @@ namespace App;
 
 use App\Validation\StoreValidation;
 
-class Store extends StoreValidation
+class Store
 {
+	use StoreValidation;
+
 	/*
 	 * The store name
 	 */
