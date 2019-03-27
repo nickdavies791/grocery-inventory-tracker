@@ -12,7 +12,7 @@
 #### Item Class Validation
 - [x] the item number must be an integer
 - [x] the item number must be in the range 0-99999
-- [ ] the item name must be a string and no more than 30 characters long
+- [x] the item name must be a string and no more than 30 characters long
 - [ ] the description must be a string and at least 30 characters long
 - [ ] the quantity must be in the range of 0-999
 - [ ] the price must be decimal 
