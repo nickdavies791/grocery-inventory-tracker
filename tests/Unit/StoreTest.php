@@ -9,17 +9,6 @@ class StoreTest extends TestCase
 	/**
 	 * @test
 	 */
-	public function a_store_can_have_a_name()
-	{
-		$store = $this->setupStore();
-		$store->setName('Test Store');
-
-		$this->assertEquals('Test Store', $store->name());
-	}
-
-	/**
-	 * @test
-	 */
 	public function a_store_name_can_be_set()
 	{
 		$store = $this->setupStore();
@@ -31,8 +20,11 @@ class StoreTest extends TestCase
 	/*
 	 * Set up the store
 	 */
-	protected function setupStore($name = 'Apple Store')
+	protected function setupStore()
 	{
-		return new Store($name);
+		$store = new Store();
+		$store->setName('Apple Store');
+
+		return $store;
 	}
 }

@@ -8,32 +8,12 @@ class ItemTest extends TestCase
 	/**
 	 * @test
 	 */
-	public function an_item_can_have_an_item_number()
-	{
-		$item = $this->setupItem();
-
-		$this->assertEquals(123, $item->number());
-	}
-
-	/**
-	 * @test
-	 */
 	public function an_item_number_can_be_set()
 	{
 		$item = $this->setupItem();
 		$item->setNumber(321);
 
 		$this->assertEquals(321, $item->number());
-	}
-
-	/**
-	 * @test
-	 */
-	public function an_item_can_have_a_name()
-	{
-		$item = $this->setupItem();
-
-		$this->assertEquals('Garden Furniture', $item->name());
 	}
 
 	/**
@@ -50,32 +30,12 @@ class ItemTest extends TestCase
 	/**
 	 * @test
 	 */
-	public function an_item_can_have_a_description()
-	{
-		$item = $this->setupItem();
-
-		$this->assertEquals('Four tables and three chairs', $item->description());
-	}
-
-	/**
-	 * @test
-	 */
 	public function an_item_description_can_be_set()
 	{
 		$item = $this->setupItem();
 		$item->setDescription('LED-backlit widescreen display');
 
 		$this->assertEquals('LED-backlit widescreen display', $item->description());
-	}
-
-	/**
-	 * @test
-	 */
-	public function an_item_can_have_a_quantity()
-	{
-		$item = $this->setupItem();
-
-		$this->assertEquals(2, $item->quantity());
 	}
 
 	/**
@@ -92,16 +52,6 @@ class ItemTest extends TestCase
 	/**
 	 * @test
 	 */
-	public function an_item_can_have_a_price()
-	{
-		$item = $this->setupItem();
-
-		$this->assertEquals(99.99, $item->price());
-	}
-
-	/**
-	 * @test
-	 */
 	public function an_item_price_can_be_set()
 	{
 		$item = $this->setupItem();
@@ -110,11 +60,40 @@ class ItemTest extends TestCase
 		$this->assertEquals(72.50, $item->price());
 	}
 
+	/**
+	 * @test
+	 */
+	public function an_item_price_must_be_saved_in_pence()
+	{
+		$item = $this->setupItem();
+		$item->setPrice(12.75);
+
+		$this->assertEquals(1275, $item->priceInPence());
+	}
+
+	/**
+	 * @test
+	 */
+	public function an_item_price_in_pence_must_be_an_integer()
+	{
+		$item = $this->setupItem();
+		$item->setPrice(850.35);
+
+		$this->assertIsInt($item->priceInPence());
+	}
+
 	/*
 	 * Set up the item
 	 */
-	protected function setupItem($number = 123, $name = 'Garden Furniture', $description = 'Four tables and three chairs', $quantity = 2, $price = 99.99)
+	protected function setupItem()
 	{
-		return new Item($number, $name, $description, $quantity, $price);
+		$item = new Item();
+		$item->setNumber(rand(1, 99999));
+		$item->setName('Garden Furniture');
+		$item->setDescription('Four tables and twenty six chairs');
+		$item->setQuantity(rand(0, 999));
+		$item->setPrice(99.99);
+
+		return $item;
 	}
 }

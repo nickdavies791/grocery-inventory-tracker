@@ -31,23 +31,6 @@ class Item extends ItemValidation
 	 */
 	protected $price;
 
-	/**
-	 * Item constructor.
-	 * @param $number
-	 * @param $name
-	 * @param $description
-	 * @param $quantity
-	 * @param $price
-	 */
-	public function __construct($number, $name, $description, $quantity, $price)
-	{
-		$this->number = $number;
-		$this->name = $name;
-		$this->description = $description;
-		$this->quantity = $quantity;
-		$this->price = $price;
-	}
-
 	/*
 	 * Returns the item number
 	 */
@@ -65,6 +48,7 @@ class Item extends ItemValidation
 
 		return $this->number = $number;
 	}
+
 	/*
 	 * Returns the item name
 	 */
@@ -124,7 +108,7 @@ class Item extends ItemValidation
 	 */
 	public function price()
 	{
-		return $this->price;
+		return $this->priceInPounds();
 	}
 
 	/*
@@ -134,6 +118,38 @@ class Item extends ItemValidation
 	{
 		$this->validatePrice($price);
 
-		return $this->price = $price;
+		return $this->price = (int) $this->setPriceInPence($price);
+	}
+
+	/*
+	 * Returns the price in pence
+	 */
+	public function priceInPence()
+	{
+		return $this->price;
+	}
+
+	/*
+	 * Sets the price in pence
+	 */
+	protected function setPriceInPence($price)
+	{
+		return $price * 100;
+	}
+
+	/*
+	 * Returns the price in pounds
+	 */
+	protected function priceInPounds()
+	{
+		return $this->price / 100;
+	}
+
+	/*
+	 * Sets the price in pounds
+	 */
+	protected function setPriceInPounds($price)
+	{
+		return $price / 100;
 	}
 }

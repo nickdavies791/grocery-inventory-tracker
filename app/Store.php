@@ -17,15 +17,6 @@ class Store extends StoreValidation
 	protected $items = [];
 
 	/**
-	 * Store constructor.
-	 * @param $name
-	 */
-	public function __construct($name)
-	{
-		$this->name = $name;
-	}
-
-	/**
 	 * Returns the store name
 	 */
 	public function name()

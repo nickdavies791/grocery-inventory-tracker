@@ -24,9 +24,9 @@ class StoreItemTest extends TestCase
 	{
 		$store = $this->setupStore();
 		$store->addItems([
-			$this->setupItem($number = 1),
-			$this->setupItem($number = 2),
-			$this->setupItem($number = 3)
+			$this->setupItem(),
+			$this->setupItem(),
+			$this->setupItem()
 		]);
 
 		$this->assertCount(3, $store->items());
@@ -35,16 +35,26 @@ class StoreItemTest extends TestCase
 	/*
 	 * Set up the item
 	 */
-	protected function setupItem($number = 123, $name = 'Garden Furniture', $description = 'Four tables and three chairs', $quantity = 2, $price = 99.99)
+	protected function setupItem()
 	{
-		return new Item($number, $name, $description, $quantity, $price);
+		$item = new Item();
+		$item->setNumber(rand(1, 99999));
+		$item->setName('Garden Furniture');
+		$item->setDescription('Four tables and twenty six chairs');
+		$item->setQuantity(rand(0, 999));
+		$item->setPrice(99.99);
+
+		return $item;
 	}
 
 	/*
 	 * Set up the store
 	 */
-	protected function setupStore($name = 'Apple Store')
+	protected function setupStore()
 	{
-		return new Store($name);
+		$store = new Store();
+		$store->setName('Apple Store');
+
+		return $store;
 	}
 }
