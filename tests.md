@@ -19,6 +19,5 @@
 #### Store Class Validation
 - [x] the store name must be a string and no more than 20 characters long
 #### Storing Items
-- [ ] an item can only be in one store at once
 - [ ] the item price must be stored as an integer in lowest form i.e. £1 = 100
 - [ ] the item price returned must be converted back to its original format i.e. divide by 100
