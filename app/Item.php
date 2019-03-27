@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Exceptions\InvalidLengthException;
 use App\Exceptions\InvalidTypeException;
 use App\Exceptions\OutOfRangeException;
 
@@ -85,6 +86,14 @@ class Item
 	 */
 	public function setName($name)
 	{
+		if (!is_string($name)) {
+			throw new InvalidTypeException($name);
+		}
+
+		if (strlen($name) > 30) {
+			throw new InvalidLengthException($name);
+		}
+
 		return $this->name = $name;
 	}
 
