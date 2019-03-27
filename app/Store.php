@@ -2,7 +2,9 @@
 
 namespace App;
 
-class Store
+use App\Validation\StoreValidation;
+
+class Store extends StoreValidation
 {
 	/*
 	 * The store name
@@ -36,6 +38,8 @@ class Store
 	 */
 	public function setName($name)
 	{
+		$this->validateName($name);
+
 		return $this->name = $name;
 	}
 
