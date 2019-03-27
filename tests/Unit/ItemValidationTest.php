@@ -93,6 +93,17 @@ class ItemValidationTest extends TestCase
 		$item->setQuantity(1234567890);
 	}
 
+	/**
+	 * @test
+	 */
+	public function an_item_price_must_be_a_decimal()
+	{
+		$this->expectException(\App\Exceptions\InvalidTypeException::class);
+
+		$item = $this->setupItem();
+		$item->setPrice('four million');
+	}
+
 	/*
 	 * Set up the item
 	 */

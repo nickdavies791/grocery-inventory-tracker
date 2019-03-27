@@ -158,6 +158,10 @@ class Item
 	 */
 	public function setPrice($price)
 	{
+		if (!is_double($price)) {
+			throw new InvalidTypeException($price);
+		}
+
 		return $this->price = $price;
 	}
 }
