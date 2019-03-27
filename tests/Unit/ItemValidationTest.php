@@ -49,6 +49,28 @@ class ItemValidationTest extends TestCase
 		$item->setName('Wonderfully long and interesting item name');
 	}
 
+	/**
+	 * @test
+	 */
+	public function an_item_description_must_be_a_string()
+	{
+		$this->expectException(\App\Exceptions\InvalidTypeException::class);
+
+		$item = $this->setupItem();
+		$item->setDescription(false);
+	}
+
+	/**
+	 * @test
+	 */
+	public function an_item_description_must_be_at_least_30_characters_long()
+	{
+		$this->expectException(\App\Exceptions\InvalidLengthException::class);
+
+		$item = $this->setupItem();
+		$item->setDescription('A tiny description');
+	}
+
 	/*
 	 * Set up the item
 	 */

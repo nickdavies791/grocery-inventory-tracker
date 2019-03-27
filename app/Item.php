@@ -110,6 +110,14 @@ class Item
 	 */
 	public function setDescription($description)
 	{
+		if (!is_string($description)) {
+			throw new InvalidTypeException($description);
+		}
+
+		if (strlen($description) < 30) {
+			throw new InvalidLengthException($description);
+		}
+
 		return $this->description = $description;
 	}
 
