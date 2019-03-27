@@ -16,6 +16,17 @@ class ItemValidationTest extends TestCase
 		$item->setNumber('thirty three');
 	}
 
+	/**
+	 * @test
+	 */
+	public function an_item_number_must_be_in_range()
+	{
+		$this->expectException(\App\Exceptions\OutOfRangeException::class);
+
+		$item = $this->setupItem();
+		$item->setNumber(1234567890);
+	}
+
 	/*
 	 * Set up the item
 	 */

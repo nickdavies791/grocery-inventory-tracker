@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Exceptions\InvalidTypeException;
+use App\Exceptions\OutOfRangeException;
 
 class Item
 {
@@ -63,6 +64,10 @@ class Item
 	{
 		if (!is_int($number)) {
 			throw new InvalidTypeException($number);
+		}
+
+		if ($number <= 0 || $number >= 99999) {
+			throw new OutOfRangeException($number);
 		}
 
 		return $this->number = $number;

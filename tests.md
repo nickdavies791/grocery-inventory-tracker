@@ -10,6 +10,7 @@
 - [x] a store can have an item
 - [x] a store can have multiple items
 #### Item Class Validation
+- [x] the item number must be an integer
 - [ ] the item number must be in the range 0-99999
 - [ ] the item number must be unique
 - [ ] the item name must be a string and no more than 30 characters long
