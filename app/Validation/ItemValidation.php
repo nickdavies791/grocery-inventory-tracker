@@ -20,11 +20,11 @@ class ItemValidation
 	public function validateNumber($number)
 	{
 		if (!is_int($number)) {
-			throw new InvalidTypeException($number);
+			throw new InvalidTypeException('The given value was not an integer.');
 		}
 
 		if ($number <= 0 || $number >= 99999) {
-			throw new OutOfRangeException($number);
+			throw new OutOfRangeException('The given value was not in the range 0-99999');
 		}
 
 		return $number;
@@ -41,11 +41,11 @@ class ItemValidation
 	public function validateName($name)
 	{
 		if (!is_string($name)) {
-			throw new InvalidTypeException($name);
+			throw new InvalidTypeException('The given value was not a string.');
 		}
 
 		if (strlen($name) > 30) {
-			throw new InvalidLengthException($name);
+			throw new InvalidLengthException('The given value was greater than 30 characters.');
 		}
 
 		return $name;
@@ -62,11 +62,11 @@ class ItemValidation
 	public function validateDescription($description)
 	{
 		if (!is_string($description)) {
-			throw new InvalidTypeException($description);
+			throw new InvalidTypeException('The given value was not a string.');
 		}
 
 		if (strlen($description) < 30) {
-			throw new InvalidLengthException($description);
+			throw new InvalidLengthException('The given value was less than 30 characters.');
 		}
 
 		return $description;
@@ -83,11 +83,11 @@ class ItemValidation
 	public function validateQuantity($quantity)
 	{
 		if (!is_int($quantity)) {
-			throw new InvalidTypeException($quantity);
+			throw new InvalidTypeException('The given value was not an integer.');
 		}
 
 		if ($quantity < 0 || $quantity > 999) {
-			throw new OutOfRangeException($quantity);
+			throw new OutOfRangeException('The given value was not in the range 0-999.');
 		}
 
 		return $quantity;
@@ -103,7 +103,7 @@ class ItemValidation
 	public function validatePrice($price)
 	{
 		if (!is_double($price)) {
-			throw new InvalidTypeException($price);
+			throw new InvalidTypeException('The given value was not a decimal.');
 		}
 
 		return $price;
