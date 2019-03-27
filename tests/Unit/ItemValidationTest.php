@@ -71,6 +71,28 @@ class ItemValidationTest extends TestCase
 		$item->setDescription('A tiny description');
 	}
 
+	/**
+	 * @test
+	 */
+	public function an_item_quantity_must_be_an_integer()
+	{
+		$this->expectException(\App\Exceptions\InvalidTypeException::class);
+
+		$item = $this->setupItem();
+		$item->setQuantity('six thousand');
+	}
+
+	/**
+	 * @test
+	 */
+	public function an_item_quantity_must_be_in_range()
+	{
+		$this->expectException(\App\Exceptions\OutOfRangeException::class);
+
+		$item = $this->setupItem();
+		$item->setQuantity(1234567890);
+	}
+
 	/*
 	 * Set up the item
 	 */

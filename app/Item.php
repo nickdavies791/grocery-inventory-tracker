@@ -134,6 +134,14 @@ class Item
 	 */
 	public function setQuantity($quantity)
 	{
+		if (!is_int($quantity)) {
+			throw new InvalidTypeException($quantity);
+		}
+
+		if ($quantity < 0 || $quantity > 999) {
+			throw new OutOfRangeException($quantity);
+		}
+
 		return $this->quantity = $quantity;
 	}
 
