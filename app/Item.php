@@ -2,11 +2,9 @@
 
 namespace App;
 
-use App\Exceptions\InvalidLengthException;
-use App\Exceptions\InvalidTypeException;
-use App\Exceptions\OutOfRangeException;
+use App\Validation\ItemValidation;
 
-class Item
+class Item extends ItemValidation
 {
 	/*
 	 * The item number
@@ -63,13 +61,7 @@ class Item
 	 */
 	public function setNumber($number)
 	{
-		if (!is_int($number)) {
-			throw new InvalidTypeException($number);
-		}
-
-		if ($number <= 0 || $number >= 99999) {
-			throw new OutOfRangeException($number);
-		}
+		$this->validateNumber($number);
 
 		return $this->number = $number;
 	}
@@ -86,13 +78,7 @@ class Item
 	 */
 	public function setName($name)
 	{
-		if (!is_string($name)) {
-			throw new InvalidTypeException($name);
-		}
-
-		if (strlen($name) > 30) {
-			throw new InvalidLengthException($name);
-		}
+		$this->validateName($name);
 
 		return $this->name = $name;
 	}
@@ -110,13 +96,7 @@ class Item
 	 */
 	public function setDescription($description)
 	{
-		if (!is_string($description)) {
-			throw new InvalidTypeException($description);
-		}
-
-		if (strlen($description) < 30) {
-			throw new InvalidLengthException($description);
-		}
+		$this->validateDescription($description);
 
 		return $this->description = $description;
 	}
@@ -134,13 +114,7 @@ class Item
 	 */
 	public function setQuantity($quantity)
 	{
-		if (!is_int($quantity)) {
-			throw new InvalidTypeException($quantity);
-		}
-
-		if ($quantity < 0 || $quantity > 999) {
-			throw new OutOfRangeException($quantity);
-		}
+		$this->validateQuantity($quantity);
 
 		return $this->quantity = $quantity;
 	}
@@ -158,9 +132,7 @@ class Item
 	 */
 	public function setPrice($price)
 	{
-		if (!is_double($price)) {
-			throw new InvalidTypeException($price);
-		}
+		$this->validatePrice($price);
 
 		return $this->price = $price;
 	}
