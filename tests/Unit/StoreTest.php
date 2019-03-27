@@ -28,40 +28,6 @@ class StoreTest extends TestCase
 		$this->assertEquals('My New Store', $store->name());
 	}
 
-	/**
-	 * @test
-	 */
-	public function a_store_can_have_an_item()
-	{
-		$store = $this->setupStore();
-		$store->addItem($this->setupItem());
-
-		$this->assertCount(1, $store->items());
-	}
-
-	/**
-	 * @test
-	 */
-	public function a_store_can_have_multiple_items()
-	{
-		$store = $this->setupStore();
-		$store->addItems([
-			$this->setupItem($number = 1),
-			$this->setupItem($number = 2),
-			$this->setupItem($number = 3)
-		]);
-
-		$this->assertCount(3, $store->items());
-	}
-
-	/*
-	 * Set up the item
-	 */
-	protected function setupItem($number = 123, $name = 'Garden Furniture', $description = 'Four tables and three chairs', $quantity = 2, $price = 99.99)
-	{
-		return new Item($number, $name, $description, $quantity, $price);
-	}
-
 	/*
 	 * Set up the store
 	 */
